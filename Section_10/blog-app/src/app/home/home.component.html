@@ -1,0 +1,9 @@
+<h1>Home page</h1>
+
+<ul>
+  <li *ngFor="let article of articles">
+    <a [routerLink]="['article', article.year, article.month]">
+      {{ article.year }}/{{ article.month }}
+    </a>
+  </li>
+</ul>

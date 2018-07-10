@@ -1,0 +1,34 @@
+<form [formGroup]="form" #f="ngForm" (ngSubmit)="submit(f.value)">
+
+  <div class="form-group">
+    <label for="oldPassword">Old Password</label>
+    <input type="password" id="oldPassword" name="oldPassword" class="form-control" formControlName="oldPassword">
+    <div class="alert alert-warning" *ngIf="oldPassword.pending">
+      Checking...
+    </div>
+    <div class="alert alert-danger" *ngIf="oldPassword.touched && oldPassword.invalid">
+      <div *ngIf="oldPassword.errors.required">Old password is required</div>     
+      <div *ngIf="oldPassword.errors.valid">Check password</div> 
+    </div>    
+  </div>
+
+  <div class="form-group">
+    <label for="newPassword">New Password</label>
+    <input type="password" id="newPassword" name="newPassword" class="form-control" formControlName="newPassword">
+    <div class="alert alert-danger" *ngIf="newPassword.touched && newPassword.invalid">
+        New password is required
+      </div>
+  </div>
+
+  <div class="form-group">
+    <label for="confirmPassword">Confirm Password</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" formControlName="confirmPassword">
+    <div class="alert alert-danger" *ngIf="confirmPassword.touched && confirmPassword.invalid">
+      <div *ngIf="confirmPassword.errors.required">Confirm password is required</div>      
+    </div>
+    <div *ngIf="confirmPassword.valid && form.invalid && form.errors.match" class="alert alert-danger">Passwords do not match</div>
+  </div>
+
+  <button class="btn btn-primary" [disabled]="form.invalid || form.pending">Change Password</button>
+
+</form>

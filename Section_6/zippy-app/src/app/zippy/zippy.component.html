@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-header" (click)="onClick()">    
+      <b>{{ heading }}</b>
+    <i class="fa" [ngClass]="{
+      'fa-chevron-up': expanded,
+      'fa-chevron-down': !expanded
+    }"></i>
+  </div>
+
+  <div *ngIf="expanded" class="card-body">
+    <ng-content></ng-content>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.css";
+
+body {
+    padding-top: 20px;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+}
+
+.media {
+    padding-bottom: 10px;
+}

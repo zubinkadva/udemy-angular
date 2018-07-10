@@ -1,0 +1,14 @@
+<div *ngIf="errors; else postblock">
+  {{ errors }}
+</div>
+
+<ng-template #postblock>
+
+{{ body }}
+<br>
+
+<i class="{{ isActive ? 'fas' : 'far' }} fa-heart" (click)="onClick()"></i> 
+
+{{ count }}
+
+</ng-template>
